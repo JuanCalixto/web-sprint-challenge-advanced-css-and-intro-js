@@ -209,12 +209,12 @@ Practice accessing data above by console.log-ing following items:
 
 //(1) Name of the first artist (0th index) in the array
 
-console.log(artists[0]);
+console.log(artists[0].name);
 
 
 //(2) Bio of the third artist (2nd index) in the array 
 
-console.log(artists[2]);
+console.log(artists[2].bio);
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -234,8 +234,8 @@ console.log(artists);
  
  Example, if getArtistByIndex is invoked with the artists array and the number 0, it will return `the artist at index 0 is Amedeo Modigliani` */
 
-function getArtistByIndex(array, number) {
-  return `the artist at index ${array[number].id} is ${array[number].name}`;
+function getArtistByIndex(array, index) {
+  return `the artist at index ${array[index].id} is ${array[index].name}`;
 } 
 
 console.log(getArtistByIndex(artists, 0));
@@ -250,10 +250,20 @@ Use get20s to do the following:
 Example born in 1901 and died in 1959 - included -- born in 1889 and died in 1925 not included
 If correct, the function should return ["Salvador Dali", "Frida Kahlo"]*/
 
-function get20s(/*Your Code Here*/){
-  /*Your Code Here*/
+function get20s(array){
+   let newArray = [];
+
+  for (let i = 0; i < array.length; i++) {
+    let born = Number(array[i].years.split(' - ')[0]); // Converting string into number and split a string into an array of substrings selectiong index of 0 as its and array
+    let died = Number(array[i].years.split(' - ')[1]); // Converting string into number and split a string into an array of substrings selectiong index of 0 as its and array
+    if (born >= 1900 && died <= 2000) { // Condition
+      newArray.push(array[i].name); // Push into new array. 
+    }
+  }
+  return newArray;
 }
 
+console.log(get20s(artists));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -265,7 +275,7 @@ function get20s(/*Your Code Here*/){
  
  For example, if removeArtist is invoked with the artists array and the number 0, it will remove Amedeo Modigliani from our dataset and return the number 19. */
 
-function removeArtist(/*Your Code Here*/){
+function removeArtist(array){
    /*Your Code Here*/
 }
    
