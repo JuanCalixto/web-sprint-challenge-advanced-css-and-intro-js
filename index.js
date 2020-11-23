@@ -368,11 +368,19 @@ function getHTML(/* Code here */){
 /* 💪💪💪💪💪💪 STRETCH 2: 💪💪💪💪💪💪
 Create a function called `randomize` that takes a data array as an argument and returns a the same array in a randomized order. */
 
-function randomize(/* Code here */){
+let arrayData = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-    /* Code here */
-
+function randomize(array){
+  for(let i = 0; i < array.length; i++) {
+    let randomIndex = Math.floor(Math.random() * array.length);
+    let currentItem = array[i];
+    array[i] = array[randomIndex];
+    array[randomIndex] = currentItem;
   }
+  return array;
+  }
+
+  console.log(randomize(arrayData));
 
 
  /* 💪💪💪💪💪💪 STRETCH 3: 💪💪💪💪💪💪
